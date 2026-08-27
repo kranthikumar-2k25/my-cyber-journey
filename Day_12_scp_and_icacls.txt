@@ -1,0 +1,4 @@
+scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private D:\newkey.private
+icacls D:\newkey.private /inheritance:r
+icacls D:\newkey.private /grant:r "%USERNAME%:R"
+ssh -i D:\newkey.private bandit14@bandit.labs.overthewire.org -p 2220
