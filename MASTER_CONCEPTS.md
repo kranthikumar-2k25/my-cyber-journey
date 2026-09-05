@@ -32,6 +32,13 @@
 - Day 19: `cron` (/etc/cron.d/), reading cron scripts, `/tmp/` lockers
 - Day 20: `md5sum` (hashing), `cut -d ' ' -f 1` (grab first field), `echo`
 
+### Script Creation & Exploitation
+- Day 21: `nano` (text editor to create files), `cp` (copy files)
+- Day 21: Creating shell scripts (`.sh` files)
+- Day 21: `/var/spool/` (drop box folders for cron jobs)
+- Day 21: Writing custom scripts and dropping them for robots to execute
+- Day 21: Privilege Escalation (using a lower account to gain higher access)
+
 ### Redirection & Pipes
 - Day 18: `>` (overwrite), `<` (feed file in), `|` (pipe), `>>` (append)
 
@@ -49,6 +56,9 @@
 - Day 11: Lists `[ ]`, indexing `[0]`
 - Day 16: `.split()`, `.join()`, `.replace()`
 - Day 20: `in` keyword (membership), `[ ]` List vs `( )` Tuple
+- Day 21: Dictionaries `{ }` (key-value pairs)
+- Day 21: Accessing dictionary values with `dict["key"]`
+- Day 21: `==` (equality comparison) vs `in` (membership check)
 
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
@@ -61,6 +71,7 @@
 - Day 3: Ep 1 (Networking intro)
 - Day 12: Ep 2
 - Day 19: Ep 3 (Switches, MAC addresses, Flooding, Layer 2)
+- Day 21: Ep 4 (TCP/UDP, OSI Layers: Layer 7 App, Layer 4 Transport, Layer 3 IP/Router, Layer 2 MAC/Switch)
 
 ---
 
@@ -69,6 +80,8 @@
 - Day 18: Understanding-Creation Gap (reading vs writing code)
 - Day 19: Tutorial Hell (copying vs understanding), breaking out of it
 - Day 20: Case Sensitivity (i vs I), Spaced Repetition, Dangerous Hacker Roadmap, Home Lab plan
+- Day 21: Thinking process over memorization (WHY before WHAT)
+- Day 21: Privilege Escalation is the #1 concept in hacking
 
 ---
 
