@@ -14,7 +14,7 @@
 
 ### Searching & Filtering
 - Day 4: `find` (locate files), `find -type f`, `find -size`
-- Day 5: `grep` (search text), `grep -v` (invert), `sort`, `uniq`
+- Day 5: `grep` (search text), `grep -v` (invert match - show everything EXCEPT the search term), `sort`, `uniq`
 - Day 6: `strings` (read text from binary), `base64` (decode)
 - Day 7: `tr` (translate/decode rot13), `xxd` / `hexdump` (read hex)
 
@@ -27,6 +27,8 @@
 - Day 11: `nmap` (scan ports), SSL connections
 - Day 12: `diff` (compare files)
 - Day 13: SUID, `chmod` (permissions), `bandit20-do`
+- Day 24: `scp` (Secure Copy) to exfiltrate files securely without corrupting Linux `\n` line endings
+- Day 24: `icacls` (Windows command to lock down SSH key permissions, equivalent to `chmod 600`)
 
 ### Job Control & Automation
 - Day 18: `&` (background), `CTRL-Z` (pause), `bg` (resume in background), `tmux` (split screens)
@@ -39,6 +41,8 @@
 - Day 21: `/var/spool/` (drop box folders for cron jobs)
 - Day 21: Writing custom scripts and dropping them for robots to execute
 - Day 21: Privilege Escalation (using a lower account to gain higher access)
+- Day 24: Escaping restricted shells (Pausing `more` -> pressing `v` -> opening `vi` editor -> `:set shell=/bin/bash` -> `:shell`)
+- Day 24: Bypassing `localhost` firewall blocks by routing connections externally from your own PC
 
 ### Brute Force & Looping
 - Day 23: `for` loops in Bash (`do` starts loop body, `done` ends it)
@@ -47,7 +51,7 @@
 - Day 23: `printf "%05d"` (zero-padding numbers to fixed width)
 
 ### Redirection & Pipes
-- Day 18: `>` (overwrite), `<` (feed file in), `|` (pipe), `>>` (append)
+- Day 18: `>` (overwrite), `<` (feed file in), `|` (pipe), `>>` (append without deleting)
 
 ---
 
@@ -69,9 +73,11 @@
 
 ### Functions & Tools
 - Day 23: `def` (define a function / create a reusable tool)
-- Day 23: Calling a function `func()` vs Assigning a variable `func = ()`
+- Day 23: Calling a function `func()` vs Assigning a variable `func = ()` (which destroys the tool)
 - Day 23: `and` keyword (check BOTH conditions are true)
 - Day 23: DRY Principle (Don't Repeat Yourself — build once, call many times)
+- Day 24: `print` (shows data to the human screen) vs `return` (hands data back to the script to save in a variable)
+- Day 24: Python Indentation (spacing dictates what is *inside* the tool vs what runs in the *main script*)
 
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
@@ -89,6 +95,7 @@
 - Day 23: Ep 5 (TCP 3-Way Handshake: SYN → SYN-ACK → ACK)
 - Day 23: Ep 5 (TCP = reliable with handshake, UDP = fast without handshake)
 - Day 23: Ep 5 (Ports: HTTP = 80, HTTPS = 443)
+- Day 24: Ep 6 (3-Tier Network Architecture: Access Layer (Tier 1 - end devices), Distribution Layer (Tier 2 - middle management), Core Layer (Tier 3 - high-speed backbone))
 
 ---
 
@@ -102,6 +109,8 @@
 - Day 23: Brute Force Attack (trying EVERY possible combination)
 - Day 23: Avalanche Effect (changing ONE character completely changes the entire hash)
 - Day 23: Salting (adding random characters to passwords before hashing to defeat dictionary attacks)
+- Day 24: Asymmetric Encryption (Public Key = The Padlock you share with the world. Private Key = The Physical Key you keep safe to unlock it)
+- Day 24: SSH Fingerprints / Host Keys (Verifying the server's identity to prevent Man-in-the-Middle fake server attacks)
 
 ---
 
@@ -114,6 +123,8 @@
 - Day 21: Privilege Escalation is the #1 concept in hacking
 - Day 23: Debugging mindset (finding the 1-character bug that breaks everything)
 - Day 23: Never do manually what a machine can do automatically
+- Day 24: Environment Debugging (Diagnosing infrastructure/OS blocks, like Windows CMD height limits, instead of blaming the tool)
+- Day 24: The "No Quit" Hacker Mindset (Pivoting strategies when the front door is blocked)
 
 ---
 
