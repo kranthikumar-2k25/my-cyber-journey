@@ -1,0 +1,56 @@
+# Day 24: Bypassing Firewalls & Escaping Restricted Shells
+**Date:** September 09, 2026
+
+## 🐧 OverTheWire: Level 25 -> 26
+
+### The Challenge: The Restricted Shell & The Firewall Block
+**The Concept:** Level 26 doesn't use `/bin/bash`. It uses a custom script that prints ASCII art and kicks you out instantly. Plus, OverTheWire blocks all internal `localhost` connections on port 2220 to save server CPU.
+**The Hack:** Bypassed the firewall by stealing the SSH key to my local PC using `scp`. Then, I zoomed in my terminal to make the text massive, forcing the `more` command to pause, allowing me to hijack the `vi` editor and spawn a real shell.
+**Key Commands:**
+- `scp -P 2220 bandit25@...:bandit26.sshkey D:\` (steal key to local PC)
+- `icacls bandit26.sshkey /inheritance:r /grant:r %USERNAME%:R` (lock down Windows permissions)
+- `ssh -i bandit26.sshkey -p 2220 bandit26@...` (connect externally to bypass localhost block)
+
+### The Big Lesson: Environment is Everything
+When `localhost` is blocked and the OS restricts your window size, you don't quit. You diagnose the infrastructure, steal the key to your own machine, and force the environment to bend to your will.
+
+---
+
+## 🌐 CCNA: Episode 6 (3-Tier Network Design)
+
+### The 3-Tier Hierarchical Architecture
+When networks grow, flat designs collapse under traffic. Engineers split them into three tiers:
+
+| Layer | Role | Hacker Perspective |
+|---|---|---|
+| **Access (Tier 1)** | Connects end-user PCs/phones | Compromise here = own the local PCs |
+| **Distribution (Tier 2)** | Middle management, policies | Good for lateral movement |
+| **Core (Tier 3)** | High-speed backbone to internet | Compromise here = own the whole company |
+
+---
+
+## 🔥 Cybersecurity Masterclass: Asymmetric Encryption
+
+| Key Type | Analogy | Who has it? |
+|---|---|---|
+| **Public Key** | The Padlock | Given to the server (anyone can see it) |
+| **Private Key** | The Physical Key | Kept safe on your PC (never crosses the internet) |
+
+**SSH Fingerprints:** When SSH asks to verify the "ED25519 fingerprint", you are verifying the server's Public Key. This prevents Man-in-the-Middle attacks (fake servers stealing your credentials).
+
+---
+
+## 🐍 Python: `print` vs `return`
+
+### The Concept
+`print` shows text to the human screen. `return` hands data back to the script to be saved in a variable.
+
+```python
+def get_access(password):
+    if password == "jHdv2ELQhT22BkprMNDjybZDAkw1zeBJ":
+        return "Granted"
+    else:
+        return "Denied"
+
+status = get_access("jHdv2ELQhT22BkprMNDjybZDAkw1zeBJ")
+print(f"Security Check: {status}")
