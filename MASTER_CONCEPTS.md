@@ -43,6 +43,7 @@
 - Day 21: Privilege Escalation (using a lower account to gain higher access)
 - Day 24: Escaping restricted shells (Pausing `more` -> pressing `v` -> opening `vi` editor -> `:set shell=/bin/bash` -> `:shell`)
 - Day 24: Bypassing `localhost` firewall blocks by routing connections externally from your own PC
+- Day 25: SUID binaries and the Golden Formula: `[Hidden Tool] + [Command] + [Secret File] = Privilege Escalation`
 
 ### Brute Force & Looping
 - Day 23: `for` loops in Bash (`do` starts loop body, `done` ends it)
@@ -62,11 +63,12 @@
 - Day 7: f-strings (`f"..."`), strings
 - Day 9: `if / else`
 - Day 10: `for` loops, `range()`
+- Day 25: Building a Port Scanner (combining Lists `[ ]`, `for` loops, and `if/elif` logic to scan multiple targets)
 
 ### Data Structures
 - Day 11: Lists `[ ]`, indexing `[0]`
 - Day 16: `.split()`, `.join()`, `.replace()`
-- Day 20: `in` keyword (membership), `[ ]` List vs `( )` Tuple
+- Day 20: `in` keyword (membership check), `[ ]` List vs `( )` Tuple
 - Day 21: Dictionaries `{ }` (key-value pairs)
 - Day 21: Accessing dictionary values with `dict["key"]`
 - Day 21: `==` (equality comparison) vs `in` (membership check)
@@ -78,6 +80,7 @@
 - Day 23: DRY Principle (Don't Repeat Yourself — build once, call many times)
 - Day 24: `print` (shows data to the human screen) vs `return` (hands data back to the script to save in a variable)
 - Day 24: Python Indentation (spacing dictates what is *inside* the tool vs what runs in the *main script*)
+- Day 25: `elif` (Else-If) to prevent double-triggering in `if` statements (chaining conditions)
 
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
@@ -96,6 +99,7 @@
 - Day 23: Ep 5 (TCP = reliable with handshake, UDP = fast without handshake)
 - Day 23: Ep 5 (Ports: HTTP = 80, HTTPS = 443)
 - Day 24: Ep 6 (3-Tier Network Architecture: Access Layer (Tier 1 - end devices), Distribution Layer (Tier 2 - middle management), Core Layer (Tier 3 - high-speed backbone))
+- Day 25: Ep 6 Data Centers (Spine-Leaf architecture vs 3-Tier. Spine-Leaf guarantees exactly 2 hops for ultra-fast East-West server traffic).
 
 ---
 
@@ -111,6 +115,7 @@
 - Day 23: Salting (adding random characters to passwords before hashing to defeat dictionary attacks)
 - Day 24: Asymmetric Encryption (Public Key = The Padlock you share with the world. Private Key = The Physical Key you keep safe to unlock it)
 - Day 24: SSH Fingerprints / Host Keys (Verifying the server's identity to prevent Man-in-the-Middle fake server attacks)
+- Day 25: The CIA Triad (Confidentiality = secrecy, Integrity = unaltered data, Availability = system uptime)
 
 ---
 
@@ -125,6 +130,7 @@
 - Day 23: Never do manually what a machine can do automatically
 - Day 24: Environment Debugging (Diagnosing infrastructure/OS blocks, like Windows CMD height limits, instead of blaming the tool)
 - Day 24: The "No Quit" Hacker Mindset (Pivoting strategies when the front door is blocked)
+- Day 25: System Auditing (Catching missing components, like spaced repetition, and holding the system accountable)
 
 ---
 
