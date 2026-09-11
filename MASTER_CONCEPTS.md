@@ -13,7 +13,7 @@
 - Day 3: Hidden files (`ls -a`), `cd ..` (go up)
 
 ### Searching & Filtering
-- Day 4: `find` (locate files), `find -type f`, `find -size`
+- Day 4: `find` (locate files), `find -type f` (find only files, ignore folders), `find -size`
 - Day 5: `grep` (search text), `grep -v` (invert match - show everything EXCEPT the search term), `sort`, `uniq`
 - Day 6: `strings` (read text from binary), `base64` (decode)
 - Day 7: `tr` (translate/decode rot13), `xxd` / `hexdump` (read hex)
@@ -53,6 +53,11 @@
 
 ### Redirection & Pipes
 - Day 18: `>` (overwrite), `<` (feed file in), `|` (pipe), `>>` (append without deleting)
+
+### Version Control & Exfiltration
+- Day 27: `git clone` (steals project and hidden `.git` history) vs `scp` (moves files without history)
+- Day 27: Linux Flag Rule (Flags eat the very next word. E.g., `scp -i [key] -P [port]`)
+- Day 27: `rm -rf` (Recursive Force delete. Nukes folders instantly without confirmation)
 
 ---
 
@@ -100,6 +105,9 @@
 - Day 23: Ep 5 (Ports: HTTP = 80, HTTPS = 443)
 - Day 24: Ep 6 (3-Tier Network Architecture: Access Layer (Tier 1 - end devices), Distribution Layer (Tier 2 - middle management), Core Layer (Tier 3 - high-speed backbone))
 - Day 25: Ep 6 Data Centers (Spine-Leaf architecture vs 3-Tier. Spine-Leaf guarantees exactly 2 hops for ultra-fast East-West server traffic).
+- Day 27: WAN & Metro Ethernet (Connecting LANs across long distances and metropolitan areas).
+- Day 27: MPLS (Multiprotocol Label Switching - high-speed routing using labels instead of IP addresses).
+- Day 27: E-LAN (Multipoint-to-multipoint mesh) vs E-Tree (Hub-and-Spoke routing).
 
 ---
 
@@ -116,6 +124,7 @@
 - Day 24: Asymmetric Encryption (Public Key = The Padlock you share with the world. Private Key = The Physical Key you keep safe to unlock it)
 - Day 24: SSH Fingerprints / Host Keys (Verifying the server's identity to prevent Man-in-the-Middle fake server attacks)
 - Day 25: The CIA Triad (Confidentiality = secrecy, Integrity = unaltered data, Availability = system uptime)
+- Day 27: The AAA Framework (Authentication = Who are you? | Authorization = What can you do? | Accounting = What did you do?)
 
 ---
 
