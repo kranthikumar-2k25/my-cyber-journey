@@ -58,6 +58,9 @@
 - Day 27: `git clone` (steals project and hidden `.git` history) vs `scp` (moves files without history)
 - Day 27: Linux Flag Rule (Flags eat the very next word. E.g., `scp -i [key] -P [port]`)
 - Day 27: `rm -rf` (Recursive Force delete. Nukes folders instantly without confirmation)
+- Day 29: `git branch -a` (reveals ALL branches including hidden remote branches)
+- Day 29: `git checkout remotes/origin/dev` (teleports workspace into hidden branch)
+- Day 29: Red (`-`) = deleted, Green (`+`) = added in Git diff output
 
 ---
 
@@ -90,6 +93,8 @@
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
 - Day 19: `\n` (new line = Enter key)
+- Day 29: `.strip()` (removes hidden `\n` newline character from file lines)
+- Day 29: `break` (stops a loop immediately when a condition is met)
 
 ---
 
@@ -125,6 +130,9 @@
 - Day 24: SSH Fingerprints / Host Keys (Verifying the server's identity to prevent Man-in-the-Middle fake server attacks)
 - Day 25: The CIA Triad (Confidentiality = secrecy, Integrity = unaltered data, Availability = system uptime)
 - Day 27: The AAA Framework (Authentication = Who are you? | Authorization = What can you do? | Accounting = What did you do?)
+- Day 29: Broken Access Control (When a system fails at Authorization)
+- Day 29: IDOR (Insecure Direct Object Reference - changing an ID in a URL to access another user's data)
+- Day 29: Privilege Escalation via Access Control (Changing `role=user` to `role=admin` in cookies/parameters)
 
 ---
 
