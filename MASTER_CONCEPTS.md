@@ -61,6 +61,9 @@
 - Day 29: `git branch -a` (reveals ALL branches including hidden remote branches)
 - Day 29: `git checkout remotes/origin/dev` (teleports workspace into hidden branch)
 - Day 29: Red (`-`) = deleted, Green (`+`) = added in Git diff output
+- Day 30: `git tag` (reveals ALL bookmarks/tags in the repository)
+- Day 30: `git show [tagname]` (reads content inside a specific tag)
+- Day 30: Tags vs Branches vs Stashes (Tags = bookmarks, Branches = parallel timelines, Stashes = temporary drawers)
 
 ---
 
@@ -95,6 +98,11 @@
 - Day 19: `\n` (new line = Enter key)
 - Day 29: `.strip()` (removes hidden `\n` newline character from file lines)
 - Day 29: `break` (stops a loop immediately when a condition is met)
+
+### User Input & Comparison
+- Day 30: `input()` (asks user to type something and stores it in a variable)
+- Day 30: `=` (ASSIGNMENT: stores a value) vs `==` (COMPARISON: checks if equal)
+- Day 30: Comparing TWO DIFFERENT variables (user_guess vs correct_password) instead of comparing a variable to itself
 
 ---
 
@@ -148,6 +156,7 @@
 - Day 24: Environment Debugging (Diagnosing infrastructure/OS blocks, like Windows CMD height limits, instead of blaming the tool)
 - Day 24: The "No Quit" Hacker Mindset (Pivoting strategies when the front door is blocked)
 - Day 25: System Auditing (Catching missing components, like spaced repetition, and holding the system accountable)
+- Day 30: Writing code from scratch (building line by line instead of copying)
 
 ---
 
