@@ -1,5 +1,9 @@
-# MASTER CONCEPTS LOG (Day 1 to Present)
+# MASTER CONCEPTS LOG (Day 1 to Day 34)
 *This is my long-term memory bank. The daily quiz pulls from this list.*
+
+> **INSTRUCTION FOR AI:** 
+> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 34. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
+
 *NOTE: Days 1-17 are reconstructed. Adjust day numbers to match my real journey.*
 *NOTE: Day 22 was skipped (busy day). No concepts added.*
 
@@ -29,6 +33,7 @@
 - Day 13: SUID, `chmod` (permissions), `bandit20-do`
 - Day 24: `scp` (Secure Copy) to exfiltrate files securely without corrupting Linux `\n` line endings
 - Day 24: `icacls` (Windows command to lock down SSH key permissions, equivalent to `chmod 600`)
+- Day 34: Daily Grind Methodology (Replaying random Bandit levels blind to build permanent muscle memory)
 
 ### Job Control & Automation
 - Day 18: `&` (background), `CTRL-Z` (pause), `bg` (resume in background), `tmux` (split screens)
@@ -67,6 +72,31 @@
 
 ---
 
+## 🕸️ WEB HACKING (OverTheWire Natas)
+
+### Reconnaissance & Information Disclosure
+- Day 34: View Page Source (CTRL+U) to reveal hidden HTML, comments, and secrets
+- Day 34: Information Disclosure (Developers leaking secrets in HTML comments, directory listings, or config files)
+- Day 34: Directory Listing (Browsing a folder URL directly to see all files when index.html is missing)
+- Day 34: robots.txt (File that tells search engines what to hide — hands hackers a map to secret directories)
+
+### Bypassing Client-Side Restrictions
+- Day 34: Client-side restrictions are NOT security (Blocking right-click is a suggestion, not a control)
+- Day 34: Bypassing right-click blocks with keyboard shortcuts (CTRL+U) or view-source: URL prefix
+
+### HTTP Headers & Session Forgery
+- Day 34: HTTP Referer header (Tells the server where you came from. Forgeable with curl -e)
+- Day 34: HTTP Cookies (Client-side "wristbands" the server trusts. Forgeable with curl -b)
+- Day 34: Session Forgery (Editing a cookie value like loggedin=0 to loggedin=1 to impersonate an admin)
+- Day 34: HTTP Status Code 401 (Unauthorized = wrong credentials)
+
+### curl Flags for Web Hacking
+- Day 34: curl -u user:pass (Basic Authentication)
+- Day 34: curl -e "URL" (Forge the Referer header)
+- Day 34: curl -b "name=value" (Send a forged cookie)
+
+---
+
 ## 🐍 PYTHON
 
 ### Basics
@@ -83,6 +113,8 @@
 - Day 21: Dictionaries `{ }` (key-value pairs)
 - Day 21: Accessing dictionary values with `dict["key"]`
 - Day 21: `==` (equality comparison) vs `in` (membership check)
+- Day 34: Tuples `( )` for auth credentials (Immutable — username and password can't change mid-flight)
+- Day 34: Dictionaries `{ }` for cookies (key:value pairs like `{'loggedin': '1'}`)
 
 ### Functions & Tools
 - Day 23: `def` (define a function / create a reusable tool)
@@ -92,6 +124,9 @@
 - Day 24: `print` (shows data to the human screen) vs `return` (hands data back to the script to save in a variable)
 - Day 24: Python Indentation (spacing dictates what is *inside* the tool vs what runs in the *main script*)
 - Day 25: `elif` (Else-If) to prevent double-triggering in `if` statements (chaining conditions)
+- Day 34: `import requests` (Load the web-hacking library to send HTTP requests from Python)
+- Day 34: `requests.get(url)` (Sends an HTTP GET request — same as typing a URL and hitting Enter)
+- Day 34: `response.text` (Prints the raw HTML string instead of the Python object)
 
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
@@ -141,6 +176,9 @@
 - Day 29: Broken Access Control (When a system fails at Authorization)
 - Day 29: IDOR (Insecure Direct Object Reference - changing an ID in a URL to access another user's data)
 - Day 29: Privilege Escalation via Access Control (Changing `role=user` to `role=admin` in cookies/parameters)
+- Day 34: The Client Trust Problem (Servers trust cookies, headers, and IDs sent by the client. Attackers forge them)
+- Day 34: Cloud IP Blocking (OverTheWire blocks Google Cloud/AWS IPs. Exploits must run from residential IPs — a real-world firewall behavior)
+- Day 34: Never push secrets to GitHub (Real passwords/SSH keys get stolen by bots. Use <REDACTED> placeholders)
 
 ---
 
@@ -157,6 +195,9 @@
 - Day 24: The "No Quit" Hacker Mindset (Pivoting strategies when the front door is blocked)
 - Day 25: System Auditing (Catching missing components, like spaced repetition, and holding the system accountable)
 - Day 30: Writing code from scratch (building line by line instead of copying)
+- Day 34: Rest is a weapon (Pushing through exhaustion causes burnout. Strategic rest protects the mission)
+- Day 34: The No-Quit discipline (Feeling the burn but refusing to fold — then resting with purpose)
+- Day 34: Demanding accountability (Asking the mentor to teach from scratch and NEVER give the full code)
 
 ---
 
@@ -164,3 +205,4 @@
 1. Every new day, add the new concepts to the right section.
 2. The daily quiz (Section 3) pulls random questions from this entire list.
 3. If I get a question wrong, it goes back into rotation until I master it.
+4. Paste this file at the start of any new AI session to restore full memory.
