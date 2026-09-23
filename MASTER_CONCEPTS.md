@@ -1,11 +1,12 @@
-# MASTER CONCEPTS LOG (Day 1 to Day 34)
+# MASTER CONCEPTS LOG (Day 1 to Day 37)
 *This is my long-term memory bank. The daily quiz pulls from this list.*
 
 > **INSTRUCTION FOR AI:** 
-> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 34. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
+> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 37. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
 
 *NOTE: Days 1-17 are reconstructed. Adjust day numbers to match my real journey.*
 *NOTE: Day 22 was skipped (busy day). No concepts added.*
+*NOTE: Day 35 was skipped (rest day). No concepts added.*
 
 ---
 
@@ -21,6 +22,7 @@
 - Day 5: `grep` (search text), `grep -v` (invert match - show everything EXCEPT the search term), `sort`, `uniq`
 - Day 6: `strings` (read text from binary), `base64` (decode)
 - Day 7: `tr` (translate/decode rot13), `xxd` / `hexdump` (read hex)
+- Day 36: `sort | uniq -u` (find the ONLY line that appears once in a file)
 
 ### Archives & Compression
 - Day 8: `tar`, `gzip`, `bzip2` (extract archives)
@@ -34,6 +36,14 @@
 - Day 24: `scp` (Secure Copy) to exfiltrate files securely without corrupting Linux `\n` line endings
 - Day 24: `icacls` (Windows command to lock down SSH key permissions, equivalent to `chmod 600`)
 - Day 34: Daily Grind Methodology (Replaying random Bandit levels blind to build permanent muscle memory)
+- Day 36: `openssl s_client` (connect to SSL/TLS ports manually, type password into encrypted tunnel)
+- Day 36: `cron` job exploitation (reading `/etc/cron.d/` scripts, finding where robots dump secrets in `/tmp/`)
+- Day 37: `nmap -sV localhost -p RANGE` (Service Version detection to identify SSL vs plain-text ports)
+- Day 37: SSH Private Key extraction via SSL tunnel (server hands you RSA key instead of password)
+- Day 37: `chmod 600` on SSH keys (SSH rejects keys with open permissions)
+- Day 37: `ssh -i /path/to/key user@host` (login with keycard instead of spoken password)
+- Day 37: `scp -P 2220 user@host:/remote/path D:\local\path` (exfiltrate files from server to Windows laptop)
+- Day 37: Internal vs External SSH (using `localhost` when already inside the server vs `-p 2220` from outside)
 
 ### Job Control & Automation
 - Day 18: `&` (background), `CTRL-Z` (pause), `bg` (resume in background), `tmux` (split screens)
@@ -58,6 +68,7 @@
 
 ### Redirection & Pipes
 - Day 18: `>` (overwrite), `<` (feed file in), `|` (pipe), `>>` (append without deleting)
+- Day 37: Piping passwords directly into SSL tunnels (`cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:PORT -quiet`) to eliminate human copy-paste errors
 
 ### Version Control & Exfiltration
 - Day 27: `git clone` (steals project and hidden `.git` history) vs `scp` (moves files without history)
@@ -69,6 +80,7 @@
 - Day 30: `git tag` (reveals ALL bookmarks/tags in the repository)
 - Day 30: `git show [tagname]` (reads content inside a specific tag)
 - Day 30: Tags vs Branches vs Stashes (Tags = bookmarks, Branches = parallel timelines, Stashes = temporary drawers)
+- Day 36: `git clone` speed-run (clone repo, `cd repo`, `cat README` to find password in plain sight)
 
 ---
 
@@ -79,6 +91,8 @@
 - Day 34: Information Disclosure (Developers leaking secrets in HTML comments, directory listings, or config files)
 - Day 34: Directory Listing (Browsing a folder URL directly to see all files when index.html is missing)
 - Day 34: robots.txt (File that tells search engines what to hide — hands hackers a map to secret directories)
+- Day 36: Source Code Disclosure via PHP `include` (Natas 6: `include "includes/secret.inc"` leaks the secret file path)
+- Day 36: Browsing directly to `.inc` files (Server serves raw code instead of executing it because it's not `.php`)
 
 ### Bypassing Client-Side Restrictions
 - Day 34: Client-side restrictions are NOT security (Blocking right-click is a suggestion, not a control)
@@ -89,6 +103,16 @@
 - Day 34: HTTP Cookies (Client-side "wristbands" the server trusts. Forgeable with curl -b)
 - Day 34: Session Forgery (Editing a cookie value like loggedin=0 to loggedin=1 to impersonate an admin)
 - Day 34: HTTP Status Code 401 (Unauthorized = wrong credentials)
+
+### Path Traversal & File Inclusion
+- Day 36: Path Traversal / Directory Traversal (Using `../` to escape web directory and read system files)
+- Day 36: URL manipulation (`?page=home` → `?page=../../../../etc/natas_webpass/natas8`)
+- Day 36: `../` means "go up one directory" — chain multiple to reach root `/`
+
+### Encoding & Obfuscation Reversal
+- Day 36: Reversing PHP encoding chains (`bin2hex(strrev(base64_encode($secret)))`)
+- Day 36: Decoding pipeline: `xxd -r -p` (hex→text) → `rev` (reverse) → `base64 -d` (decode)
+- Day 36: Piping decode chains in Bash (`echo "HEX" | xxd -r -p | rev | base64 -d`)
 
 ### curl Flags for Web Hacking
 - Day 34: curl -u user:pass (Basic Authentication)
@@ -105,6 +129,9 @@
 - Day 9: `if / else`
 - Day 10: `for` loops, `range()`
 - Day 25: Building a Port Scanner (combining Lists `[ ]`, `for` loops, and `if/elif` logic to scan multiple targets)
+- Day 36: `input()` (asks user to type something and stores it in a variable)
+- Day 36: `=` (ASSIGNMENT: stores a value) vs `==` (COMPARISON: checks if equal)
+- Day 36: `if/else` access control logic (comparing user input to a secret password)
 
 ### Data Structures
 - Day 11: Lists `[ ]`, indexing `[0]`
@@ -115,6 +142,9 @@
 - Day 21: `==` (equality comparison) vs `in` (membership check)
 - Day 34: Tuples `( )` for auth credentials (Immutable — username and password can't change mid-flight)
 - Day 34: Dictionaries `{ }` for cookies (key:value pairs like `{'loggedin': '1'}`)
+- Day 37: Lists `[ ]` (Hacker's toolbelt — stores multiple targets in one variable)
+- Day 37: Zero-based indexing (slot 0 = first item, slot 1 = second, slot 2 = third)
+- Day 37: Square brackets `[ ]` = List (mutable) vs no brackets / `( )` = Tuple (immutable)
 
 ### Functions & Tools
 - Day 23: `def` (define a function / create a reusable tool)
@@ -156,6 +186,14 @@
 - Day 27: WAN & Metro Ethernet (Connecting LANs across long distances and metropolitan areas).
 - Day 27: MPLS (Multiprotocol Label Switching - high-speed routing using labels instead of IP addresses).
 - Day 27: E-LAN (Multipoint-to-multipoint mesh) vs E-Tree (Hub-and-Spoke routing).
+- Day 36: IPv4 Addressing (4 octets, 32 bits total, each octet 0-255)
+- Day 36: Subnet Masks (255.255.255.0 = first 3 octets are Network ID, last octet is Host ID)
+- Day 36: Network ID vs Host ID (Street name vs House number)
+- Day 37: Ep 9 (SOHO Home Router = 4-in-1 device: Router + Switch + WAP + Firewall/NAT)
+- Day 37: NAT (Network Address Translation — translates private IPs to single Public IP for internet access)
+- Day 37: DHCP (Dynamic Host Configuration Protocol — automatically hands out IP addresses to devices)
+- Day 37: Private IP ranges (192.168.x.x, 10.x.x.x, 172.16-31.x.x) vs Public IPs
+- Day 37: LAN ports on home router act as Layer 2 Switch internally
 
 ---
 
@@ -179,6 +217,16 @@
 - Day 34: The Client Trust Problem (Servers trust cookies, headers, and IDs sent by the client. Attackers forge them)
 - Day 34: Cloud IP Blocking (OverTheWire blocks Google Cloud/AWS IPs. Exploits must run from residential IPs — a real-world firewall behavior)
 - Day 34: Never push secrets to GitHub (Real passwords/SSH keys get stolen by bots. Use <REDACTED> placeholders)
+- Day 36: SQL Injection (SQLi) — The Database Killer
+  - Payload: `' OR 1=1 --`
+  - `'` closes the string early (break out of the jail)
+  - `OR 1=1` is always TRUE (bypasses logic check)
+  - `--` comments out everything after it (deletes the password check)
+- Day 37: OWASP Top 10 (The 10 most dangerous web vulnerabilities)
+- Day 37: Broken Access Control = OWASP #1 (Checking permissions at login but NOT on subsequent page loads)
+- Day 37: IDOR via URL manipulation (Changing `user_id=100` to `user_id=1` to access admin data)
+- Day 37: The VIP Room Analogy (Bouncer checks ID at front door but not at VIP room door)
+- Day 37: Fix: Check permissions on EVERY page load, not just at login
 
 ---
 
@@ -198,6 +246,10 @@
 - Day 34: Rest is a weapon (Pushing through exhaustion causes burnout. Strategic rest protects the mission)
 - Day 34: The No-Quit discipline (Feeling the burn but refusing to fold — then resting with purpose)
 - Day 34: Demanding accountability (Asking the mentor to teach from scratch and NEVER give the full code)
+- Day 36: Hacker Fatigue is real (Solving a puzzle once doesn't mean you retain it forever. Context-switching dumps memory. Re-learning is normal.)
+- Day 36: The GPS Analogy (You can drive to a destination with GPS, but driving from memory the next day feels impossible. That doesn't mean you can't drive.)
+- Day 37: Machine-to-Machine piping (Never copy-paste passwords manually. Use `cat /etc/bandit_pass/level | command` to eliminate human error)
+- Day 37: Adapt your attack path (If localhost blocks you, pivot to your laptop. If terminal is confusing, use Notepad. The goal is the same.)
 
 ---
 
