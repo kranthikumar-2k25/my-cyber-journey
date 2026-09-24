@@ -1,8 +1,8 @@
-# MASTER CONCEPTS LOG (Day 1 to Day 37)
+# MASTER CONCEPTS LOG (Day 1 to Day 38)
 *This is my long-term memory bank. The daily quiz pulls from this list.*
 
 > **INSTRUCTION FOR AI:** 
-> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 37. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
+> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 38. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
 
 *NOTE: Days 1-17 are reconstructed. Adjust day numbers to match my real journey.*
 *NOTE: Day 22 was skipped (busy day). No concepts added.*
@@ -44,6 +44,8 @@
 - Day 37: `ssh -i /path/to/key user@host` (login with keycard instead of spoken password)
 - Day 37: `scp -P 2220 user@host:/remote/path D:\local\path` (exfiltrate files from server to Windows laptop)
 - Day 37: Internal vs External SSH (using `localhost` when already inside the server vs `-p 2220` from outside)
+- Day 38: SSH Command Execution Bypass (Appending a command to the SSH string like `ssh user@host "cat readme"` executes it during the handshake before instant-disconnect scripts can kick you out)
+- Day 38: SUID Binary Exploitation (Using `./bandit20-do cat /etc/bandit_pass/bandit20` to force a SUID binary to run `cat` with the privileges of the binary's owner)
 
 ### Job Control & Automation
 - Day 18: `&` (background), `CTRL-Z` (pause), `bg` (resume in background), `tmux` (split screens)
@@ -114,6 +116,12 @@
 - Day 36: Decoding pipeline: `xxd -r -p` (hex→text) → `rev` (reverse) → `base64 -d` (decode)
 - Day 36: Piping decode chains in Bash (`echo "HEX" | xxd -r -p | rev | base64 -d`)
 
+### Command Injection & Regex Bypasses
+- Day 38: Command Injection (Natas 9: Using the semicolon `;` as a "Stop Sign" to end the developer's `grep` command and chain your own `cat` command)
+- Day 38: The Comment Mute Button (Using `#` at the end of a payload to comment out leftover garbage text the PHP script blindly appends)
+- Day 38: Regex Bypass / Abusing Tools (Natas 10: When `;` and `|` are blocked, tricking `grep` into reading the password file by passing a blank search `""` followed by the target file path)
+- Day 38: Natas 0-10 Speedrun (Building muscle memory by repeating early levels daily without hints)
+
 ### curl Flags for Web Hacking
 - Day 34: curl -u user:pass (Basic Authentication)
 - Day 34: curl -e "URL" (Forge the Referer header)
@@ -145,6 +153,11 @@
 - Day 37: Lists `[ ]` (Hacker's toolbelt — stores multiple targets in one variable)
 - Day 37: Zero-based indexing (slot 0 = first item, slot 1 = second, slot 2 = third)
 - Day 37: Square brackets `[ ]` = List (mutable) vs no brackets / `( )` = Tuple (immutable)
+
+### Loops & Automation
+- Day 38: `for` loops (The Conveyor Belt: iterating through Lists automatically without hardcoding indexes)
+- Day 38: Python Indentation (The 4-space rule that dictates exactly what code is *inside* the loop vs outside)
+- Day 38: Protecting built-in tools (Never use `str`, `print`, `list` as variable names, or you destroy the built-in function and cause TypeErrors)
 
 ### Functions & Tools
 - Day 23: `def` (define a function / create a reusable tool)
@@ -194,6 +207,9 @@
 - Day 37: DHCP (Dynamic Host Configuration Protocol — automatically hands out IP addresses to devices)
 - Day 37: Private IP ranges (192.168.x.x, 10.x.x.x, 172.16-31.x.x) vs Public IPs
 - Day 37: LAN ports on home router act as Layer 2 Switch internally
+- Day 38: ARP (Address Resolution Protocol - maps Layer 3 IP addresses to Layer 2 MAC addresses by shouting "WHO HAS THIS IP?")
+- Day 38: ARP Spoofing / Poisoning (Lying to both the Router and the Victim about your MAC address to intercept traffic)
+- Day 38: Man-in-the-Middle (MitM) Attack (Sitting perfectly in the middle of the wire on a local Wi-Fi to read unencrypted data)
 
 ---
 
@@ -227,6 +243,8 @@
 - Day 37: IDOR via URL manipulation (Changing `user_id=100` to `user_id=1` to access admin data)
 - Day 37: The VIP Room Analogy (Bouncer checks ID at front door but not at VIP room door)
 - Day 37: Fix: Check permissions on EVERY page load, not just at login
+- Day 38: Cross-Site Scripting (XSS) (Injecting malicious JavaScript via `<script>` tags to hack the *User's Browser*, unlike Command Injection which hacks the *Server's Terminal*)
+- Day 38: The Poisoned Megaphone (Websites blindly pasting user input directly into HTML, allowing browsers to execute attacker-controlled scripts)
 
 ---
 
@@ -250,6 +268,8 @@
 - Day 36: The GPS Analogy (You can drive to a destination with GPS, but driving from memory the next day feels impossible. That doesn't mean you can't drive.)
 - Day 37: Machine-to-Machine piping (Never copy-paste passwords manually. Use `cat /etc/bandit_pass/level | command` to eliminate human error)
 - Day 37: Adapt your attack path (If localhost blocks you, pivot to your laptop. If terminal is confusing, use Notepad. The goal is the same.)
+- Day 38: The Night Shift Protocol (Reclaiming a "wasted" day by executing a massive, focused grind late at night instead of giving up)
+- Day 38: The 40-Question Gauntlet (Testing raw recall under extreme sleep deprivation to force the brain to lock data into long-term memory)
 
 ---
 
