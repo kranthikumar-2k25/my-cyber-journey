@@ -1,12 +1,13 @@
-# MASTER CONCEPTS LOG (Day 1 to Day 38)
+# MASTER CONCEPTS LOG (Day 1 to Day 40)
 *This is my long-term memory bank. The daily quiz pulls from this list.*
 
 > **INSTRUCTION FOR AI:** 
-> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 38. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
+> Read this entire file carefully. This is the student's complete knowledge base from Day 1 to Day 40. Do not repeat topics already covered. Use this to generate daily quizzes, track progress, and continue the curriculum exactly where we left off.
 
 *NOTE: Days 1-17 are reconstructed. Adjust day numbers to match my real journey.*
 *NOTE: Day 22 was skipped (busy day). No concepts added.*
 *NOTE: Day 35 was skipped (rest day). No concepts added.*
+*NOTE: Day 39 was skipped (rest/lost day). No concepts added.*
 
 ---
 
@@ -26,6 +27,7 @@
 
 ### Archives & Compression
 - Day 8: `tar`, `gzip`, `bzip2` (extract archives)
+- Day 40: The Compression Maze (Bandit 12: reversing hexdumps with `xxd -r`, then using `file` to detect and peel back multiple layers of gzip, bzip2, and tar archives)
 
 ### Networking & Permissions
 - Day 9: `ssh` keys (passwordless login)
@@ -46,6 +48,7 @@
 - Day 37: Internal vs External SSH (using `localhost` when already inside the server vs `-p 2220` from outside)
 - Day 38: SSH Command Execution Bypass (Appending a command to the SSH string like `ssh user@host "cat readme"` executes it during the handshake before instant-disconnect scripts can kick you out)
 - Day 38: SUID Binary Exploitation (Using `./bandit20-do cat /etc/bandit_pass/bandit20` to force a SUID binary to run `cat` with the privileges of the binary's owner)
+- Day 40: The Kata Speedrun Protocol (Re-solving levels 0-12 blind, with zero AI hints, using only `man` pages and `--help` to build unbreakable muscle memory)
 
 ### Job Control & Automation
 - Day 18: `&` (background), `CTRL-Z` (pause), `bg` (resume in background), `tmux` (split screens)
@@ -122,6 +125,15 @@
 - Day 38: Regex Bypass / Abusing Tools (Natas 10: When `;` and `|` are blocked, tricking `grep` into reading the password file by passing a blank search `""` followed by the target file path)
 - Day 38: Natas 0-10 Speedrun (Building muscle memory by repeating early levels daily without hints)
 
+### Cryptography & Cookie Forgery
+- Day 40: XOR Encryption (Natas 11: Server encrypts session cookies using a repeating XOR key)
+- Day 40: The XOR Magic Formula: `A ⊕ B = C` (Plain-text ⊕ Key = Cipher-text) and `A ⊕ C = B` (Plain-text ⊕ Cipher-text = Secret Key)
+- Day 40: Reversing XOR to steal the key (XORing the known default JSON with the Base64-decoded cookie reveals the secret key)
+- Day 40: Forging Encrypted Cookies (Modifying the JSON to `"showpassword":"yes"`, XORing it with the stolen key, and Base64 encoding it to bypass the lock)
+- Day 40: Base64 Padding Errors (URL-encoded cookies use `%3D` instead of `=`, which breaks Python's `b64decode` until manually fixed)
+- Day 40: Python 3 Bytes vs Strings (`b64decode` returns raw bytes, so you don't need `ord()` on the cipher-text, only on the plain-text string)
+- Day 40: CyberChef (Visual drag-and-drop crypto tool used by real pentesters to avoid writing custom Python scripts for quick math)
+
 ### curl Flags for Web Hacking
 - Day 34: curl -u user:pass (Basic Authentication)
 - Day 34: curl -e "URL" (Forge the Referer header)
@@ -158,6 +170,7 @@
 - Day 38: `for` loops (The Conveyor Belt: iterating through Lists automatically without hardcoding indexes)
 - Day 38: Python Indentation (The 4-space rule that dictates exactly what code is *inside* the loop vs outside)
 - Day 38: Protecting built-in tools (Never use `str`, `print`, `list` as variable names, or you destroy the built-in function and cause TypeErrors)
+- Day 40: The Indentation Golden Rule (Misaligning a `try:` block with a `for` loop causes the loop to only execute once instead of iterating)
 
 ### Functions & Tools
 - Day 23: `def` (define a function / create a reusable tool)
@@ -170,6 +183,14 @@
 - Day 34: `import requests` (Load the web-hacking library to send HTTP requests from Python)
 - Day 34: `requests.get(url)` (Sends an HTTP GET request — same as typing a URL and hitting Enter)
 - Day 34: `response.text` (Prints the raw HTML string instead of the Python object)
+
+### Network Programming (Sockets)
+- Day 40: `import socket` (Loading Python's built-in networking toolbox)
+- Day 40: `s = socket.socket()` (Creating a blank network handshake object)
+- Day 40: `s.connect(("IP", Port))` (Dialing a specific IP and Port to check if it's open)
+- Day 40: `s.settimeout(1)` (Preventing the script from hanging for 60 seconds on closed ports by forcing a 1-second timeout)
+- Day 40: `try:` and `except:` blocks (The safety net that catches connection errors on closed ports so the script doesn't crash)
+- Day 40: `AttributeError` debugging (Catching typos like `socket.scoket()` by reading Python's exact error trace)
 
 ### File I/O
 - Day 18: `open()`, `"r"` (read), `"w"` (write), `with` (safe close), `.readlines()`
@@ -208,8 +229,11 @@
 - Day 37: Private IP ranges (192.168.x.x, 10.x.x.x, 172.16-31.x.x) vs Public IPs
 - Day 37: LAN ports on home router act as Layer 2 Switch internally
 - Day 38: ARP (Address Resolution Protocol - maps Layer 3 IP addresses to Layer 2 MAC addresses by shouting "WHO HAS THIS IP?")
-- Day 38: ARP Spoofing / Poisoning (Lying to both the Router and the Victim about your MAC address to intercept traffic)
+- Day 38: ARP Spoofing / Poisoning (Lying to both the Router and the Victim about your MAC address to intercept local Wi-Fi traffic)
 - Day 38: Man-in-the-Middle (MitM) Attack (Sitting perfectly in the middle of the wire on a local Wi-Fi to read unencrypted data)
+- Day 40: DNS (Domain Name System - The internet's phonebook that translates human domain names into machine IP addresses)
+- Day 40: DNS Spoofing / DNS Poisoning (Intercepting a victim's DNS request and lying about the IP address to redirect them to a hacker's fake website)
+- Day 40: ARP vs DNS Spoofing (ARP lies about MAC addresses on the local LAN; DNS lies about Domain Names for internet routing)
 
 ---
 
@@ -245,6 +269,7 @@
 - Day 37: Fix: Check permissions on EVERY page load, not just at login
 - Day 38: Cross-Site Scripting (XSS) (Injecting malicious JavaScript via `<script>` tags to hack the *User's Browser*, unlike Command Injection which hacks the *Server's Terminal*)
 - Day 38: The Poisoned Megaphone (Websites blindly pasting user input directly into HTML, allowing browsers to execute attacker-controlled scripts)
+- Day 40: SQLi Anatomy Deep Dive (Understanding exactly why the Logic Bomb works: The single quote breaks the container, the math forces a TRUE condition, and the double-dash silences the syntax error)
 
 ---
 
@@ -270,6 +295,11 @@
 - Day 37: Adapt your attack path (If localhost blocks you, pivot to your laptop. If terminal is confusing, use Notepad. The goal is the same.)
 - Day 38: The Night Shift Protocol (Reclaiming a "wasted" day by executing a massive, focused grind late at night instead of giving up)
 - Day 38: The 40-Question Gauntlet (Testing raw recall under extreme sleep deprivation to force the brain to lock data into long-term memory)
+- Day 40: The Redemption Grind (Using guilt over a skipped day to fuel a massive, high-intensity study session instead of quitting)
+- Day 40: Self-Auditing (Honestly admitting when a speedrun took 2 hours and used hints, rather than faking a 30-minute time. Real hackers audit themselves.)
+- Day 40: Micro-stepping (Breaking down overwhelming coding tasks into single-line instructions to build confidence and bypass mental blocks)
+- Day 40: Tool Builder vs. Tool User (Understanding *how* tools like Nmap work at the socket level so you can build custom evasion tools instead of just pressing buttons)
+- Day 40: The "Discover, Don't Copy" Protocol (Demanding to write code from scratch and figure out the logic, rather than just filling in blanks provided by AI)
 
 ---
 
